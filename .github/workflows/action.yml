@@ -1,6 +1,11 @@
 name: 'Business Greetings'
 description: 'Offers professional greetings and timestamps them'
 on:
+  push:
+    branches:
+      - master
+
+on:
   workflow_dispatch:
     inputs:
       name:
