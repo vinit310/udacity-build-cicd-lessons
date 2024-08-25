@@ -1,22 +1,13 @@
-name: Business Greetings
-  description: Offers professional greetings and timestamps them
-on:
-  push:
-    branches:
-      - master
-  workflow_dispatch:
-    inputs:
-      name:
-        description: 'Name of the person or team to greet'
-        required: true
-        default: 'Udacity Learner'
-jobs:
-  greet:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Run greeting script
-        run: node index.js
-    outputs:
-      timestamp: 'Time of greeting'
+name: 'Business Greetings'
+description: 'Offers professional greetings and timestamps them'
+inputs:
+  name:
+    description: 'Name of the person or team to greet'
+    required: true
+    default: 'Udacity Learner'
+outputs:
+  timestamp:
+    description: 'Time of greeting'
+runs:
+  using: 'node18'
+  main: 'index.js'
