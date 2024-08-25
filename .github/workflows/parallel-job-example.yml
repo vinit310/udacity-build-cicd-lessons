@@ -1,20 +1,20 @@
 # Workflow name
-name: parallel-job-examples
+name: parallel-job-example
 
 # Triggers for the workflow
 on:
   # Manual trigger using the workflow_dispatch event
   workflow_dispatch:
 
-  # Automatic trigger on push events to the master branch
+  # Automatic trigger on push events to the main branch
   push:
     branches:
-      - master
+      - main
 
-  # Automatic trigger on pull request events targeting the master branch
+  # Automatic trigger on pull request events targeting the main branch
   pull_request:
     branches:
-      - master
+      - main
 
   # Scheduled trigger at 5:00 AM UTC, Monday through Friday
   schedule:
@@ -27,24 +27,19 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          path: .github/workflows/package.json
 
       - name: Set up Node.js 
         uses: actions/setup-node@v3
         with:
           node-version: latest
-      
-      - name: Install dependencies
-        run: npm install    
 
-      - name: Print a message for master branch
-        if: github.ref == 'refs/heads/master'
-        run: echo "This is the master branch."
+      - name: Print a message for main branch
+        if: github.ref == 'refs/heads/main'
+        run: echo "This is the main branch."
 
-      - name: Print a message for non-master branches
-        if: github.ref != 'refs/heads/master'
-        run: echo "This is not the master branch."
+      - name: Print a message for non-main branches
+        if: github.ref != 'refs/heads/main'
+        run: echo "This is not the main branch."
 
       - name: Run tests
         run: npm test
@@ -58,24 +53,19 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          path: .github/workflows/package.json
 
       - name: Set up Node.js 
         uses: actions/setup-node@v3
         with:
           node-version: latest
 
-      - name: Install dependencies
-        run: npm install   
+      - name: Print a message for main branch
+        if: github.ref == 'refs/heads/main'
+        run: echo "This is the main branch."
 
-      - name: Print a message for master branch
-        if: github.ref == 'refs/heads/master'
-        run: echo "This is the master branch."
-
-      - name: Print a message for non-master branches
-        if: github.ref != 'refs/heads/master'
-        run: echo "This is not the master branch."
+      - name: Print a message for non-main branches
+        if: github.ref != 'refs/heads/main'
+        run: echo "This is not the main branch."
 
       - name: Run tests
         run: npm test
