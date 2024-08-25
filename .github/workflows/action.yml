@@ -1,5 +1,5 @@
 name: Business Greetings
-description: Offers professional greetings and timestamps them
+  description: Offers professional greetings and timestamps them
 on:
   push:
     branches:
@@ -13,11 +13,10 @@ on:
 jobs:
   greet:
     runs-on: ubuntu-latest
-    outputs:
-      timestamp:
-        description: 'Time of greeting'
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Run greeting script
         run: node index.js
+    outputs:
+      timestamp: 'Time of greeting'
