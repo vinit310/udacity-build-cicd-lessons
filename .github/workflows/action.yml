@@ -1,5 +1,13 @@
 name: 'Business Greetings'
 description: 'Offers professional greetings and timestamps them'
+on:
+  # Manual trigger using the workflow_dispatch event
+  workflow_dispatch:
+
+  # Automatic trigger on push events to the master branch
+  push:
+    branches:
+      - master
 inputs:
   name:
     description: 'Name of the person or team to greet'
