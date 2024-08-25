@@ -16,6 +16,16 @@ inputs:
 outputs:
   timestamp:
     description: 'Time of greeting'
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run greeting script
+        run: node index.js
+    outputs:
+      timestamp: 'Time of greeting'    
 runs:
   using: 'node18'
   main: 'index.js'
