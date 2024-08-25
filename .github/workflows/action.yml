@@ -4,20 +4,18 @@ on:
   push:
     branches:
       - master
-
-on:
   workflow_dispatch:
     inputs:
       name:
         description: 'Name of the person or team to greet'
         required: true
         default: 'Udacity Learner'
-outputs:
-  timestamp:
-    description: 'Time of greeting'
 jobs:
   greet:
     runs-on: ubuntu-latest
+    outputs:
+      timestamp:
+        description: 'Time of greeting'
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
