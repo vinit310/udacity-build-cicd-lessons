@@ -33,10 +33,12 @@ jobs:
       - run: npm ci
 
       # Run the tests.
-      - run: cd backend && npm test
+      - run: cd backend
+      - run: npm test
 
       # Run the linter.
-      - run: cd backend && npm run lint
+      - run: cd backend
+      - run: npm run lint
 
       # Send a console message at completion.
       - run: |
