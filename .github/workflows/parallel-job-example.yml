@@ -6,15 +6,15 @@ on:
   # Manual trigger using the workflow_dispatch event
   workflow_dispatch:
 
-  # Automatic trigger on push events to the main branch
+  # Automatic trigger on push events to the master branch
   push:
     branches:
-      - main
+      - master
 
-  # Automatic trigger on pull request events targeting the main branch
+  # Automatic trigger on pull request events targeting the master branch
   pull_request:
     branches:
-      - main
+      - master
 
   # Scheduled trigger at 5:00 AM UTC, Monday through Friday
   schedule:
@@ -33,13 +33,13 @@ jobs:
         with:
           node-version: latest
 
-      - name: Print a message for main branch
-        if: github.ref == 'refs/heads/main'
-        run: echo "This is the main branch."
+      - name: Print a message for master branch
+        if: github.ref == 'refs/heads/master'
+        run: echo "This is the master branch."
 
-      - name: Print a message for non-main branches
-        if: github.ref != 'refs/heads/main'
-        run: echo "This is not the main branch."
+      - name: Print a message for non-master branches
+        if: github.ref != 'refs/heads/master'
+        run: echo "This is not the master branch."
 
       - name: Run tests
         run: npm test
@@ -59,13 +59,13 @@ jobs:
         with:
           node-version: latest
 
-      - name: Print a message for main branch
-        if: github.ref == 'refs/heads/main'
-        run: echo "This is the main branch."
+      - name: Print a message for master branch
+        if: github.ref == 'refs/heads/master'
+        run: echo "This is the master branch."
 
-      - name: Print a message for non-main branches
-        if: github.ref != 'refs/heads/main'
-        run: echo "This is not the main branch."
+      - name: Print a message for non-master branches
+        if: github.ref != 'refs/heads/master'
+        run: echo "This is not the master branch."
 
       - name: Run tests
         run: npm test
