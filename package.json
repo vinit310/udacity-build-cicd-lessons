@@ -6,6 +6,11 @@
     "scripts": {
       "test": "node main.js"
     },
+    "scripts": {
+      "start": "node app.js",
+      "test": "mocha test.js",
+      "lint": "eslint ."
+  },
     "keywords": [],
     "author": "",
     "license": "ISC",
