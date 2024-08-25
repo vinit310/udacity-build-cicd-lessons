@@ -32,6 +32,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: latest
+      
+      - name: Install dependencies
+        run: npm install    
 
       - name: Print a message for master branch
         if: github.ref == 'refs/heads/master'
@@ -59,6 +62,9 @@ jobs:
         with:
           node-version: latest
 
+      - name: Install dependencies
+        run: npm install   
+        
       - name: Print a message for master branch
         if: github.ref == 'refs/heads/master'
         run: echo "This is the master branch."
