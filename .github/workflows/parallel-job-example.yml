@@ -1,5 +1,5 @@
 # Workflow name
-name: parallel-job-example
+name: parallel-job-examples
 
 # Triggers for the workflow
 on:
